@@ -1,0 +1,93 @@
+.login-prompt {
+   max-width: 480px; 
+   margin: 40px auto; 
+   text-align: center; 
+  }
+
+/* Date + court pickers  */
+.picker-row { display: grid; 
+  grid-template-columns: 1fr 1fr;
+   gap: 16px; }
+
+/*  Slot */
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 8px;
+  margin: 8px 0 16px;
+}
+
+.slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 8px;
+  background: #fff;
+  border: 1px solid var(--court);
+  border-radius: var(--radius);
+  color: var(--court-dark);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.slot:hover:not(:disabled) { background: var(--court-tint); }
+.slot.selected { background: var(--court); color: #fff; }
+
+.slot.booked {
+  background: #fdeceb;
+  border-color: #f3c2be;
+  color: #8f1c12;
+  cursor: not-allowed;
+}
+
+.slot.past {
+  background: #eef0ee;
+  border-color: var(--line);
+  color: #8a948d;
+  cursor: not-allowed;
+}
+.slot-note { font-size: 0.75rem; font-weight: 400; }
+
+/* ---------- Legend ---------- */
+.legend { 
+  display: flex; 
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+  color: var(--muted); 
+}
+
+.legend-box {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+  vertical-align: middle;
+  border: 1px solid var(--court);
+  border-radius: 3px;
+}
+
+.legend-box.available { background: #fff; }
+.legend-box.selected { background: var(--court); }
+.legend-box.booked { background: #fdeceb; border-color: #f3c2be; }
+
+/* Summary + confirm  */
+.summary-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 14px;
+  background: #f7f9f6;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+@media (max-width: 560px) {
+  .picker-row { grid-template-columns: 1fr; gap: 0; }
+}
