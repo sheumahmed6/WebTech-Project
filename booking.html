@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a Slot</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Badminton Turf</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="booking.html" class="active">Book a Slot</a>
+        <span class="nav-user" id="nav-user" hidden></span>
+        <button type="button" class="btn btn-light btn-sm" id="logout-btn" hidden>Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Shown when nobody is logged in -->
+    <section class="card login-prompt" id="login-prompt" hidden>
+      <h2>Log in to book a slot</h2>
+      <p>You need a customer account to book a court.</p>
+      <a href="customer-login.html" class="btn btn-primary">Log in or sign up</a>
+    </section>
+
+    <!-- Shown when customer is logged in -->
+    <div id="booking-area" hidden>
+
+      <section class="card">
+        <h2>Book a slot</h2>
+    <!-- date selector -->
+        <div class="picker-row">
+          <div class="form-group">
+            <label for="booking-date">Date</label>
+            <input type="date" id="booking-date" required>
+          </div>
+    <!-- court selector -->
+          <div class="form-group">
+            <label for="court-select">Court</label>
+            <select id="court-select"></select>
+          </div>
+        </div>
+    <!-- available or booked -->
+        <div class="legend">
+          <span><i class="legend-box available"></i>Available</span>
+          <span><i class="legend-box selected"></i>Selected</span>
+          <span><i class="legend-box booked"></i>Booked</span>
+        </div>
+
+        <div id="slot-grid" class="slot-grid"></div>
+
+        <div id="booking-message" class="alert" hidden></div>
+
+        <div class="summary-bar">
+          <span id="summary-text">No slots selected.</span>
+          <button type="button" class="btn btn-primary" id="confirm-btn" disabled>Confirm booking</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Your upcoming bookings</h2>
+
+        <p class="empty-state" id="no-bookings" hidden>You have no upcoming bookings.</p>
+
+        <div class="table-wrap" id="bookings-wrap" hidden>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Time slot</th>
+                <th>Court</th>
+                <th>Price</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="bookings-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="storage.js"></script>
+  <script src="utils.js"></script>
+  <script src="booking.js"></script>
+</body>
+</html>
