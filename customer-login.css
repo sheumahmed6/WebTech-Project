@@ -1,0 +1,18 @@
+/* customer-login.css — Login / sign-up card layout. Shared styles are in common.css */
+
+.auth-wrap { max-width: 440px; margin-top: 32px; }
+
+.tabs { display: flex; margin-bottom: 20px; border-bottom: 1px solid var(--line); }
+.tab {
+  flex: 1;
+  padding: 10px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tab:hover { color: var(--ink); }
+.tab.active { color: var(--court-dark); border-bottom-color: var(--court); }
