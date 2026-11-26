@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="admin-dashboard.html" class="brand">Admin Dashboard</a>
+      <nav class="nav">
+        <a href="index.html">View site</a>
+        <span class="nav-user">Logged in as admin</span>
+        <button type="button" class="btn btn-light btn-sm" id="logout-btn">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hidden until admin-dashboard.js confirms an admin is logged in -->
+  <main class="container" id="dashboard" hidden>
+
+    <div class="stats">
+      <div class="stat"><span class="stat-number" id="stat-total">0</span><span class="stat-label">All bookings</span></div>
+      <div class="stat"><span class="stat-number" id="stat-confirmed">0</span><span class="stat-label">Confirmed</span></div>
+      <div class="stat"><span class="stat-number" id="stat-completed">0</span><span class="stat-label">Completed</span></div>
+      <div class="stat"><span class="stat-number" id="stat-cancelled">0</span><span class="stat-label">Cancelled</span></div>
+    </div>
+
+    <section class="card">
+      <h2>Bookings</h2>
+
+      <div class="filters">
+        <div class="form-group">
+          <label for="filter-date">Date</label>
+          <input type="date" id="filter-date">
+        </div>
+        <div class="form-group">
+          <label for="filter-status">Status</label>
+          <select id="filter-status">
+            <option value="">All statuses</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="completed">Completed</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+        </div>
+        <div class="filter-buttons">
+          <button type="button" class="btn btn-secondary" id="filter-today">Today</button>
+          <button type="button" class="btn btn-secondary" id="filter-clear">Clear filters</button>
+        </div>
+      </div>
+
+      <div id="message" class="alert" hidden></div>
+      <p class="muted" id="result-count"></p>
+
+      <p class="empty-state" id="no-results" hidden>No bookings match these filters.</p>
+
+      <div class="table-wrap" id="table-wrap" hidden>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Customer</th>
+              <th>Date</th>
+              <th>Time slot</th>
+              <th>Court</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="bookings-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="storage.js"></script>
+  <script src="utils.js"></script>
+  <script src="admin-dashboard.js"></script>
+</body>
+</html>

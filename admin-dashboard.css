@@ -1,0 +1,37 @@
+/* admin-dashboard.css — Dashboard layout only. Shared styles are in common.css */
+
+/* Darker header so the admin area looks different from the customer site */
+.site-header { background: #22302a; }
+
+/* ---------- Summary numbers ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.stat-number { font-size: 1.8rem; font-weight: 700; line-height: 1.2; }
+.stat-label { color: var(--muted); font-size: 0.9rem; }
+
+/* ---------- Filters ---------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 16px;
+  margin-bottom: 8px;
+}
+.filters .form-group { margin-bottom: 0; min-width: 170px; }
+.filter-buttons { display: flex; gap: 8px; }
+
+/* ---------- Table actions ---------- */
+.actions { white-space: nowrap; }
+.actions .btn + .btn { margin-left: 6px; }
